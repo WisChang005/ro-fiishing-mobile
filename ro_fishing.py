@@ -1,3 +1,4 @@
+import sys
 import time
 import logging
 
@@ -14,14 +15,16 @@ class RoFishing:
         self.avaliable_threshold = 3
 
     def first_time_manual_fishing(self):
+        logging.debug("First time manual fishing...")
         input("Please move the mouse to the fishing button and press enter...")
         self.fishing_btn = pyautogui.position()
         logging.debug("Get Mouse Position: %s", self.fishing_btn)
         self.click_fishing_button()
-        input("Wait and Press enter to fishing...")
+        input("Wait and Press enter to pull the fishing rod...")
         self.color_r_th, self.color_g_th, self.color_b_th = self.get_fishing_button_color()
         logging.info("Remember the color [R=%s, G=%s, B=%s]", self.color_r_th, self.color_g_th, self.color_b_th)
         self.click_fishing_button()
+        logging.debug("First time manual fishing completed!")
 
     def click_fishing_button(self):
         pyautogui.moveTo(*self.fishing_btn)
@@ -57,7 +60,7 @@ def main():
         rf.click_fishing_button()
         rf.wait_for_fishing_button_avaliable()
 
-        logging.info("Pull fishing rod...")
+        logging.info("Pull the fishing rod...")
         rf.click_fishing_button()
         time.sleep(4)
 
@@ -68,3 +71,6 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         logging.info("Stop Fishing")
+    except Exception as e:
+        logging.exception(e)
+        sys.exit(2)
