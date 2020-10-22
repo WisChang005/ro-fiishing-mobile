@@ -1,5 +1,6 @@
 # RO 新世代手遊 釣魚輔助器
 
+* [[釣魚輔助器 - 載點]](https://github.com/WisChang005/ro-fishing-mobile/releases/download/untagged-26fcdf5d733ba8108f0f/ro_fishing.zip)
 
 ## 啟動模擬器並且移動至釣魚地點
 

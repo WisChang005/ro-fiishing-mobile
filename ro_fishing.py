@@ -60,7 +60,7 @@ def main():
         rf.click_fishing_button()
         rf.wait_for_fishing_button_avaliable()
 
-        logging.info("Pull the fishing rod...")
+        print("Pull the fishing rod...")
         rf.click_fishing_button()
         time.sleep(4)
 
@@ -70,6 +70,7 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
+        print("Stop Fishing")
         logging.info("Stop Fishing")
     except Exception as e:
         logging.exception(e)
